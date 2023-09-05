@@ -2,5 +2,9 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run pre-commit
+
+# for everything except mac
 sed -i "s/^version: .*/version: $(jq -r '.version' package.json)/" mta.yaml
+# for mac
+# sed -i "" "s/^version: .*/version: $(jq -r '.version' package.json)/" mta.yaml
 git add mta.yaml
